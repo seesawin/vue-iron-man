@@ -1,0 +1,40 @@
+import Vue from 'vue'
+import Router from 'vue-router'
+import HelloWorld from '@/components/HelloWorld'
+import c2f from '@/components/c2f'
+import c2f_if from '@/components/c2f_if'
+import learnComponent from '@/pages/learnComponent'
+import count from '@/pages/count'
+import todo from '@/pages/todo'
+
+Vue.use(Router)
+
+export default new Router({
+  routes: [
+    {
+      path: '/HelloWorld',
+      name: 'HelloWorld',
+      component: HelloWorld
+    }, {
+      path: '/c2f',
+      name: 'c2f',
+      component: c2f
+    }, {
+      path: '/c2f_if',
+      name: 'c2f_if',
+      component: c2f_if
+    }, {
+      path: '/learnComponent',
+      name: 'learnComponent',
+      component: learnComponent
+    }, {
+      path: '/count',
+      name: 'count',
+      component: count
+    }, {
+      path: '/todo',
+      name: 'todo',
+      component: todo
+    }
+  ]
+})
