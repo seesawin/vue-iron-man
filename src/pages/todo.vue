@@ -25,6 +25,7 @@
           <!-- todoItem 已經使用了 custom-checkbox -->
           <todoItem v-for="(item, index) in todoList" :item="item" :key="index"/>
         </ol>
+        <pre>{{ todoList }}</pre>
       </div>
       <div class="col-md-6">
         <h2>Done List:</h2>
@@ -34,9 +35,12 @@
             <customCheckbox :item="item" @toggleTodo="toggleTodo"/>
           </li>
         </ol>
+        <pre>{{ doneList }}</pre>
       </div>
     </div><!-- end row -->
+
   </div>
+
 </template>
 
 <script>
