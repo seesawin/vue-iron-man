@@ -6,6 +6,8 @@ import c2f_if from '@/components/c2f_if'
 import learnComponent from '@/pages/learnComponent'
 import count from '@/pages/count'
 import todo from '@/pages/todo'
+import shop from '@/pages/shop'
+import cart from '@/pages/cart'
 
 Vue.use(Router)
 
@@ -35,6 +37,14 @@ export default new Router({
       path: '/todo',
       name: 'todo',
       component: todo
+    }, {
+      path: '/shop',
+      name: 'shop',
+      component: shop
+    }, {
+      path: '/cart',
+      name: 'cart',
+      component: cart
     }
   ]
 })
