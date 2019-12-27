@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <!-- loading 拉到最外層，可以讓所有頁面使用。 -->
+    <div v-if="loading" class="loader loader-curtain is-active"></div>
     <div>
       <img src="static/images/images.jpg" alt="Frank">
     </div>
@@ -23,6 +25,7 @@
     <router-link :to="{name: 'count'}">count</router-link>
     <router-link :to="{name: 'todo'}">todo</router-link>
     <router-link :to="{name: 'shop'}">shop</router-link>
+    <router-link :to="{name: 'open1999'}">open1999</router-link>
 
     <!-- 轉跳後所載入的 component 最後會顯示在此 -->
     <router-view></router-view>
@@ -30,8 +33,13 @@
 </template>
 
 <script>
+  import { mapGetters } from 'vuex';
   export default {
-    name: 'App'
+    name: 'App',
+    computed: mapGetters({
+      // 取得 loading state
+      loading: 'getLoading'
+    }),
   }
 </script>
 

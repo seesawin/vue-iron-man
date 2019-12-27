@@ -8,6 +8,7 @@ import count from '@/pages/count'
 import todo from '@/pages/todo'
 import shop from '@/pages/shop'
 import cart from '@/pages/cart'
+import open1999 from '@/pages/open1999'
 
 Vue.use(Router)
 
@@ -45,6 +46,10 @@ export default new Router({
       path: '/cart',
       name: 'cart',
       component: cart
+    }, {
+      path: '/open1999',
+      name: 'open1999',
+      component: open1999
     }
   ]
 })

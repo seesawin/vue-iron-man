@@ -1,3 +1,3 @@
-// export const INCREASE = 'INCREASE';
-// export const DECREASE = 'DECREASE';
-// export const COUNT_RESET = 'COUNT_RESET';
+export const LOADING = 'LOADING';
+export const TOKEN = 'TOKEN';
+export const LANGUAGE = 'LANGUAGE';
