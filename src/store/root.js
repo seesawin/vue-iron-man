@@ -46,7 +46,7 @@ export const mutations = {
   [types.TOKEN] (state, token) {
     state.token = token;
   },
-  [types.LANGUAGE] (state, setlang) {    
+  [types.LANGUAGE] (state, setlang) {
     state.lang = setlang;
     // 設定 Vue config 將會改變使用的語系
     Vue.config.lang = state.lang;

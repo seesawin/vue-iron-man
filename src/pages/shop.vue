@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="shop">
     <!-- Top menu -->
     <div class="w3-white w3-xlarge w3-padding-xlarge" style="max-width:1200px;margin:auto">
       <div class="w3-right">
@@ -24,7 +24,7 @@
           :class="{ 'w3-grayscale-max': !item.inventory }">
           <img :src="item.image" style="width: 100%;">
           <h3>{{ item.title }}</h3>
-          <h4>${{ item.price }}</h4>
+          <h4>{{ item.price}}</h4>
           <!--
             數據驅動 UI
             根據條件變化不同 class
@@ -44,13 +44,15 @@
               數據驅動 UI
               按鈕顯示文案
             -->
+            <span v-if="item.inventory >= 2">每日限量 {{ item.inventory }} 客</span>
             <span v-if="item.inventory == 1">最後 {{ item.inventory }} 客</span>
-            <span v-if="item.inventory >= 2">限量 {{ item.inventory }} 客</span>
             <span v-if="!item.inventory">Sold out</span>
           </button>
         </div><!-- end preduct -->
       </div>
     </div>
+    <!-- nested-routes -->
+    <router-view class="nested-routes"></router-view>
   </div>
 </template>
 
@@ -67,5 +69,14 @@
     ]),
   }
 </script>
-<!-- 載入 w3school - food blog template -->
-<style src="../../static/css/w3.css"></style>
+<style>
+  /* 載入 w3school - food blog template */
+  @import url("../../static/css/w3.css");
+  /* custom style */
+  #shop h3 {
+    font-weight: lighter;
+  }
+  #shop h4 {
+    font-size: 28px;
+  }
+</style>

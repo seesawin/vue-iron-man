@@ -25,7 +25,7 @@
 </template>
 
 <script>
-  import {mapGetters, mapActions} from 'vuex';
+  import {mapActions} from 'vuex';
   import customCheckbox from '../components/customCheckbox.vue';
 
   export default {

@@ -1,11 +1,7 @@
 <template>
-  <div id="app">
+  <div>
     <!-- loading 拉到最外層，可以讓所有頁面使用。 -->
     <div v-if="loading" class="loader loader-curtain is-active"></div>
-    <div>
-      <img src="static/images/images.jpg" alt="Frank">
-    </div>
-
     <!--
       router-link 就像
       <a href="/c2f">CtoF</a>
@@ -18,46 +14,68 @@
         component: Hello
       },
     -->
-    <router-link :to="{path: '/HelloWorld'}">HelloWorld</router-link>
-    <router-link :to="{name: 'c2f'}">CtoF</router-link>
-    <router-link :to="{name: 'c2f_if'}">c2f_if</router-link>
-    <router-link :to="{name: 'learnComponent'}">learnComponent</router-link>
-    <router-link :to="{name: 'count'}">count</router-link>
-    <router-link :to="{name: 'todo'}">todo</router-link>
-    <router-link :to="{name: 'shop'}">shop</router-link>
-    <router-link :to="{name: 'open1999'}">open1999</router-link>
+    <nav class="navbar navbar-default ">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <router-link class="navbar-brand" :to="{path: '/'}">{seesawin}</router-link>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><li><router-link :to="{path: '/login'}">login</router-link></li>
+            <li><router-link :to="{path: '/HelloWorld'}">HelloWorld</router-link></li>
+            <li><router-link :to="{name: 'c2f'}">CtoF</router-link></li>
+            <li><router-link :to="{name: 'c2f_if'}">c2f_if</router-link></li>
+            <li><li><router-link :to="{name: 'count'}">count</router-link></li>
+            <li><router-link :to="{name: 'todo'}">todo</router-link></li>
+            <li><router-link :to="{name: 'shop'}">shop</router-link></li>
+            <li><router-link :to="{name: 'open1999'}">open1999</router-link></li>
+            <li><router-link :to="{name: 'multiple'}">multiple</router-link></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
 
     <!-- 轉跳後所載入的 component 最後會顯示在此 -->
     <router-view></router-view>
-  </div>
+
+    <!--
+      multiples views
+      多重顯示，在 router-view 設定 name 之後可以嵌入特定 Page
+      沒有設定 name 的 view 使用 `default` 設定
+    -->
+    <div class="row">
+      <router-view name="viewLeft" class="col-md-6 viewLeft"></router-view>
+      <router-view name="viewRight" class="col-md-6 viewRight"></router-view>
+    </div>
+
+    </div>
 </template>
 
 <script>
   import { mapGetters } from 'vuex';
   export default {
-    name: 'App',
     computed: mapGetters({
       // 取得 loading state
       loading: 'getLoading'
     }),
   }
 </script>
-
-<style>
-  /* 載入 bootstrap - food blog template */
-  @import url("../static/css/bootstrap.css");
-
-  #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -webkit-moz-osx-font-smoothing: ;
-    -moz-moz-osx-font-smoothing: ;
-    -ms-moz-osx-font-smoothing: ;
-    -o-moz-osx-font-smoothing: ;
-    -khtml-moz-osx-font-smoothing: ;
-    moz-osx-font-smoothing: ;: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
+<style lang="scss">
+  .nested-routes,
+  .viewRight {
+    border: solid 2px red;
+  }
+  .viewLeft {
+    border: solid 2px blue;
   }
 </style>
+
