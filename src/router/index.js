@@ -102,9 +102,39 @@ router.beforeEach((to, from, next) => {
     console.log(record.name, record.meta.requiresAuth);
     return record.meta.requiresAuth;
   })) {
+    /**
+     * 登入流程
+     requiresAuth
+     1.true
+       1.判斷cookie是否有token
+           a.有 >
+             1.判斷是否過期(/checkLogin)
+                a.是 > 導向登入頁
+                b.否 >
+                    1.執行操作
+                    2.更新token過期時間(/refresh)
+           b.無 > 導向登入頁
+     2.false >
+        1.判斷cookie是否有的token
+           a.有 >
+               1.判斷是否過期(/checkLogin)
+                   a.是 > 執行操作
+                   b.否 >
+                      1.執行操作
+                      2.更新token過期時間(/refresh)
+           b.無 > 執行操作
+
+     2.登入頁面
+       1.驗證密碼是否正確(/login)
+         a.是 > 回傳token紀錄於token
+         b.否 > 重新輸入密碼
+
+     * */
     // 如果沒有 token
+    let windowToken = window.localStorage.getItem("token");
+    console.log('windowToken?', windowToken);
     console.log('token?', store.state.token);
-    if (store.state.token === '') {
+    if (windowToken === '' || windowToken === null) {
       // 轉跳到 login page
       next({ path: '/login' });
     } else {

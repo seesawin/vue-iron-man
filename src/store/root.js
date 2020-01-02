@@ -45,6 +45,7 @@ export const mutations = {
   },
   [types.TOKEN] (state, token) {
     state.token = token;
+    window.localStorage.setItem("token",token);
   },
   [types.LANGUAGE] (state, setlang) {
     state.lang = setlang;

@@ -1,6 +1,6 @@
 <template>
   <div id="login">
-    <img src="static/images/ironman2017.jpg" class="responsive-img">
+<!--    <img src="static/images/ironman2017.jpg" class="responsive-img">-->
     <div class="container">
       <div class="form-signin">
         <h2 class="form-signin-heading">Please sign in</h2>
