@@ -26,6 +26,10 @@ const actions = {
     console.log('actionCountReset');
     commit(types.COUNT_RESET);
   },
+  testGIT ({commit}) {
+    console.log('testGIT');
+    commit(types.COUNT_RESET);
+  },
 }
 
 export const mutations = {
